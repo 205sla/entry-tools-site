@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>205 · 엔트리 관련 서비스</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  :root {
+    /* core palette - will be overridden by theme */
+    --bg: #f7faf7;
+    --bg-2: #ecf3ec;
+    --ink: #0f1a12;
+    --ink-2: #3b4a3f;
+    --ink-3: #6a7a6d;
+    --line: #d6e0d6;
+    --line-2: #e6ecea;
+    --surface: #ffffff;
+    --brand: #1fb25a;
+    --brand-ink: #0b6b35;
+    --brand-soft: #d8f0e0;
+    --brand-tint: #eaf7ee;
+    --accent: #e89b3c;
+    --warn: #d64545;
+
+    --radius-s: 8px;
+    --radius-m: 14px;
+    --radius-l: 22px;
+
+    --shadow-s: 0 1px 0 rgba(15,26,18,.04), 0 1px 2px rgba(15,26,18,.06);
+    --shadow-m: 0 1px 0 rgba(15,26,18,.04), 0 8px 24px -8px rgba(15,26,18,.12);
+
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", sans-serif;
+    --display: "Space Grotesk", var(--sans);
+  }
+
+  [data-theme="dark"] {
+    --bg: #0c1310;
+    --bg-2: #121b16;
+    --ink: #eaf3ec;
+    --ink-2: #b6c4ba;
+    --ink-3: #7f8f84;
+    --line: #223029;
+    --line-2: #1a241e;
+    --surface: #141d18;
+    --brand: #3be078;
+    --brand-ink: #a9f0c2;
+    --brand-soft: #183d27;
+    --brand-tint: #112019;
+    --accent: #f0b365;
+  }
+
+  [data-theme="studio"] {
+    /* warmer, paper-like */
+    --bg: #f6f2e9;
+    --bg-2: #ece5d4;
+    --ink: #1a1a17;
+    --ink-2: #3a3a33;
+    --ink-3: #6b6a5f;
+    --line: #ddd4be;
+    --line-2: #e8e0ca;
+    --surface: #fffdf5;
+    --brand: #2f8f4b;
+    --brand-ink: #1e5a30;
+    --brand-soft: #d9e9cf;
+    --brand-tint: #ebf1df;
+    --accent: #c8532d;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv01";
+    line-height: 1.55;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* selection */
+  ::selection { background: var(--brand); color: white; }
+
+  /* shared */
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+  .mono { font-family: var(--mono); font-feature-settings: "zero", "ss01"; }
+  .kbd {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 2px 6px;
+    border: 1px solid var(--line);
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    background: var(--surface);
+    color: var(--ink-2);
+  }
+
+  /* scrollbar reset */
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+  // tweaks default block (host parses this)
+  window.__TWEAKS__ = /*EDITMODE-BEGIN*/{
+    "theme": "light",
+    "density": "comfortable",
+    "blockMotif": true,
+    "heroVariant": "minimal"
+  }/*EDITMODE-END*/;
+</script>
+
+<script type="text/babel" src="components/Blocks.jsx"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Hero.jsx"></script>
+<script type="text/babel" src="components/SectionBooks.jsx"></script>
+<script type="text/babel" src="components/SectionExtensions.jsx"></script>
+<script type="text/babel" src="components/SectionSites.jsx"></script>
+<script type="text/babel" src="components/SectionChannels.jsx"></script>
+<script type="text/babel" src="components/SectionCollab.jsx"></script>
+<script type="text/babel" src="components/About.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/Tweaks.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

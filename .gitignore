@@ -1,0 +1,5 @@
+uploads/
+scraps/
+.DS_Store
+Thumbs.db
+*.log
