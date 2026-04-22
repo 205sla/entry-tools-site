@@ -176,18 +176,6 @@ const JudgePreview = () => {
         style={{ display: "block", width: "100%", height: "auto", marginTop: 10 }}
       />
       <div style={{
-        fontSize: 10, color: "var(--ink-3)", marginTop: 8,
-        letterSpacing: "0.02em",
-      }}>
-        블록 이미지 © <a href="https://playentry.org/" target="_blank" rel="noreferrer"
-            style={{ color: "inherit", textDecoration: "underline" }}
-            onClick={e => e.stopPropagation()}>NAVER Connect Foundation</a>
-        {" · "}
-        <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noreferrer"
-           style={{ color: "inherit", textDecoration: "underline" }}
-           onClick={e => e.stopPropagation()}>CC BY 2.0</a>
-      </div>
-      <div style={{
         marginTop: 16, padding: "8px 10px", borderRadius: 6,
         background: "var(--brand-soft)", color: "var(--brand-ink)",
         display: "flex", justifyContent: "space-between",
