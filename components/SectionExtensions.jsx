@@ -194,7 +194,7 @@ const ExtensionVisual = ({ name }) => {
         }}>
           <img src="assets/ent-file.png" alt="" width={28} height={28} style={{ display: "block" }} />
           <span style={{ fontSize: 13, fontWeight: 700, color: "var(--brand-ink)", letterSpacing: "-0.01em" }}>
-            작품 A+B.ent · 5 오브젝트
+            하나의 작품으로 합쳐줍니다
           </span>
         </div>
       </div>
