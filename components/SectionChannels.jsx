@@ -10,6 +10,15 @@ const SectionChannels = () => {
       ico: "YT",
     },
     {
+      name: "엔트리 유튜버들",
+      handle: "discord.gg/Ps7m8QrKn6",
+      host: "discord.gg",
+      url: "https://discord.gg/Ps7m8QrKn6",
+      desc: "엔트리로 영상을 만드는 유튜버·크리에이터들이 모여 이야기 나누는 디스코드 서버. 작품·도구·편집 이야기가 오갑니다.",
+      brand: "#5865f2",
+      ico: "DC",
+    },
+    {
       name: "엔트리 밴드",
       handle: "@entryband",
       host: "band.us",
@@ -30,7 +39,7 @@ const SectionChannels = () => {
           count={channels.length}
         />
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
           {channels.map(c => <ChannelCard key={c.url} c={c} />)}
         </div>
       </div>

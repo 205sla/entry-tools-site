@@ -21,12 +21,14 @@ const Footer = () => {
         ["entry.205.kr", "https://entry.205.kr"],
         ["code.205.kr", "https://code.205.kr"],
         ["엔트리.org", "https://xn--oy2b95t44j.org/"],
+        ["유저찾기.엔트리.org", "https://xn--ok0bx68bhtav5k.xn--oy2b95t44j.org/"],
       ],
     },
     {
       h: "채널",
       items: [
         ["유튜브", "https://www.youtube.com/channel/UC8_yUqU2HnNkWBYfXhlWcWQ"],
+        ["디스코드", "https://discord.gg/Ps7m8QrKn6"],
         ["밴드", "https://band.us/@entryband"],
         ["205.kr", "https://205.kr"],
       ],

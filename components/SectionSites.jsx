@@ -26,6 +26,14 @@ const SectionSites = () => {
       category: "유틸리티",
       accent: "#7a62e0",
     },
+    {
+      name: "유저 찾기 — 엔트리 유저 통계",
+      url: "https://xn--ok0bx68bhtav5k.xn--oy2b95t44j.org/",
+      host: "유저찾기.엔트리.org",
+      desc: "프로필 링크나 닉네임으로 엔트리 유저의 작품 통계·랭킹을 조회하는 비공식 통계 도구. 공개된 프로필 데이터만 읽어 오며, gnlow/Ent2ml 프로젝트를 참고해 Next.js로 재구성했습니다.",
+      category: "통계",
+      accent: "#4a6db0",
+    },
   ];
 
   return (
@@ -51,7 +59,7 @@ const SectionSites = () => {
           ))}
           {/* others */}
           {sites.filter(s => !s.featured).map(s => (
-            <div key={s.url} style={{ gridColumn: "span 6" }}>
+            <div key={s.url} style={{ gridColumn: "span 4" }}>
               <SiteCard site={s} />
             </div>
           ))}
