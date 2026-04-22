@@ -76,6 +76,7 @@ const ExtensionCard = ({ ext, wide }) => {
       {/* platform chip */}
       <div style={{
         position: "absolute", top: wide ? 28 : 22, right: wide ? 28 : 22,
+        zIndex: 2,
         display: "flex", alignItems: "center", gap: 6,
         padding: "4px 10px", borderRadius: 100,
         background: "var(--bg-2)", color: "var(--ink-2)",
