@@ -170,24 +170,11 @@ const JudgePreview = () => {
       </div>
 
       <div style={{ color: "var(--ink-3)" }}>// 입력 두 수 A, B의 합을 출력하세요</div>
-      <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 2 }}>
-        <BlockShape w={300} color="#1fb25a" variant="event">시작하기 버튼을 클릭했을 때</BlockShape>
-        <div style={{ marginTop: -7 }}>
-          <BlockShape w={310} color="#7a62e0" variant="action">A? 을(를) 묻고 대답 기다리기</BlockShape>
-        </div>
-        <div style={{ marginTop: -7 }}>
-          <BlockShape w={320} color="#7a62e0" variant="action">A ▼ 을(를) 대답 (으)로 정하기</BlockShape>
-        </div>
-        <div style={{ marginTop: -7 }}>
-          <BlockShape w={310} color="#7a62e0" variant="action">B? 을(를) 묻고 대답 기다리기</BlockShape>
-        </div>
-        <div style={{ marginTop: -7 }}>
-          <BlockShape w={320} color="#7a62e0" variant="action">B ▼ 을(를) 대답 (으)로 정하기</BlockShape>
-        </div>
-        <div style={{ marginTop: -7 }}>
-          <BlockShape w={280} color="#ff4d88" variant="cap">A ▼ 값 + B ▼ 값 을(를) 말하기 ▼</BlockShape>
-        </div>
-      </div>
+      <img
+        src="assets/judge-blocks.png"
+        alt="엔트리 풀이 코드: 시작하기 → A? 묻고 대답 기다리기 → A 대답으로 정하기 → B? 묻고 대답 기다리기 → B 대답으로 정하기 → A값+B값 말하기"
+        style={{ display: "block", width: "100%", height: "auto", marginTop: 10 }}
+      />
       <div style={{
         marginTop: 16, padding: "8px 10px", borderRadius: 6,
         background: "var(--brand-soft)", color: "var(--brand-ink)",
