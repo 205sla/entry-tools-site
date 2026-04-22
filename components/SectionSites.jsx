@@ -171,15 +171,21 @@ const JudgePreview = () => {
 
       <div style={{ color: "var(--ink-3)" }}>// 입력 두 수 A, B의 합을 출력하세요</div>
       <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 2 }}>
-        <BlockShape w={220} color="#e89b3c" variant="event">시작하기 버튼을 클릭했을 때</BlockShape>
+        <BlockShape w={300} color="#1fb25a" variant="event">시작하기 버튼을 클릭했을 때</BlockShape>
         <div style={{ marginTop: -7 }}>
-          <BlockShape w={240} color="#7a62e0" variant="action">입력값 A, B 를 받는다</BlockShape>
+          <BlockShape w={310} color="#7a62e0" variant="action">A? 을(를) 묻고 대답 기다리기</BlockShape>
         </div>
         <div style={{ marginTop: -7 }}>
-          <BlockShape w={200} color="#1fb25a" variant="action">A + B 를 출력</BlockShape>
+          <BlockShape w={320} color="#7a62e0" variant="action">A ▼ 을(를) 대답 (으)로 정하기</BlockShape>
         </div>
         <div style={{ marginTop: -7 }}>
-          <BlockShape w={140} color="#4a6db0" variant="cap">멈추기</BlockShape>
+          <BlockShape w={310} color="#7a62e0" variant="action">B? 을(를) 묻고 대답 기다리기</BlockShape>
+        </div>
+        <div style={{ marginTop: -7 }}>
+          <BlockShape w={320} color="#7a62e0" variant="action">B ▼ 을(를) 대답 (으)로 정하기</BlockShape>
+        </div>
+        <div style={{ marginTop: -7 }}>
+          <BlockShape w={280} color="#ff4d88" variant="cap">A ▼ 값 + B ▼ 값 을(를) 말하기 ▼</BlockShape>
         </div>
       </div>
       <div style={{

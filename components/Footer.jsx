@@ -29,6 +29,7 @@ const Footer = () => {
       items: [
         ["유튜브", "https://www.youtube.com/channel/UC8_yUqU2HnNkWBYfXhlWcWQ"],
         ["디스코드", "https://discord.gg/Ps7m8QrKn6"],
+        ["카카오톡", "https://open.kakao.com/o/gqHqTTuc"],
         ["밴드", "https://band.us/@entryband"],
         ["205.kr", "https://205.kr"],
       ],

@@ -102,15 +102,18 @@ const Hero = () => {
 };
 
 const HeroMotif = () => {
+  // real Entry code — start · repeat · brush · wait · move · look
   const blocks = [
-    { label: "엔트리가 시작되면", color: "#e89b3c", w: 230 },
-    { label: "도구를 하나 만든다", color: "#1fb25a", w: 250 },
-    { label: "사람들이 쓰기 시작한다", color: "#1fb25a", w: 270 },
-    { label: "반복하기", color: "#7a62e0", w: 190 },
+    { label: "시작하기 버튼을 클릭했을 때", color: "#1fb25a", w: 280 }, // 시작
+    { label: "10 번 반복하기", color: "#1fb25a", w: 200 },              // 흐름
+    { label: "도장 찍기", color: "#e89b3c", w: 150 },                    // 붓
+    { label: "0.3 초 기다리기", color: "#1fb25a", w: 200 },              // 흐름
+    { label: "이동 방향으로 10 만큼 움직이기", color: "#7a62e0", w: 300 }, // 움직임
+    { label: "다음 모양으로 바꾸기", color: "#ff4d88", w: 230 },           // 생김새
   ];
 
   return (
-    <div style={{ position: "relative", height: 420 }}>
+    <div style={{ position: "relative", height: 500 }}>
       {/* perspective card */}
       <div style={{
         position: "absolute",

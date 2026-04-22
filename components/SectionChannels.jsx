@@ -29,6 +29,14 @@ const ChannelLogo = ({ kind }) => {
       }}>BAND</span>
     );
   }
+  if (kind === "kakao") {
+    // KakaoTalk speech bubble — dark brown silhouette (the iconic Kakao mark color on yellow).
+    return (
+      <svg width="26" height="24" viewBox="0 0 20 18" aria-hidden fill="#3C1E1E">
+        <path d="M10 0C4.48 0 0 3.58 0 8c0 2.83 1.85 5.32 4.65 6.75L3.5 18l3.87-2.55c.86.11 1.74.18 2.63.18 5.52 0 10-3.58 10-8S15.52 0 10 0z"/>
+      </svg>
+    );
+  }
   return null;
 };
 
@@ -53,6 +61,15 @@ const SectionChannels = () => {
       ico: "discord",
     },
     {
+      name: "【코딩】엔트리&스크래치 커뮤니티",
+      handle: "open.kakao.com",
+      host: "open.kakao.com",
+      url: "https://open.kakao.com/o/gqHqTTuc",
+      desc: "엔트리와 스크래치를 함께 쓰는 사람들이 실시간으로 질문·작품·학습 이야기를 나누는 카카오톡 오픈채팅방.",
+      brand: "#FEE500",
+      ico: "kakao",
+    },
+    {
       name: "엔트리 밴드",
       handle: "@entryband",
       host: "band.us",
@@ -73,7 +90,7 @@ const SectionChannels = () => {
           count={channels.length}
         />
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
           {channels.map(c => <ChannelCard key={c.url} c={c} />)}
         </div>
       </div>
