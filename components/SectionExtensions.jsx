@@ -134,7 +134,21 @@ const ExtensionCard = ({ ext, wide }) => {
 };
 
 const ExtensionVisual = ({ name }) => {
-  // abstract visualization of "merging" two entry works
+  // real-.ent-file icons to represent "merging two Entry works"
+  const file = (label) => (
+    <div style={{ textAlign: "center" }}>
+      <img
+        src="assets/ent-file.png"
+        alt=""
+        width={64} height={64}
+        style={{ display: "block", margin: "0 auto", filter: "drop-shadow(0 6px 10px rgba(31,178,90,.25))" }}
+      />
+      <div className="mono" style={{
+        fontSize: 12, marginTop: 8, color: "var(--ink-2)", letterSpacing: "0.02em",
+      }}>{label}</div>
+    </div>
+  );
+
   return (
     <div style={{
       position: "relative",
@@ -145,38 +159,44 @@ const ExtensionVisual = ({ name }) => {
       overflow: "hidden",
       padding: 22,
     }}>
-      {/* left stack */}
-      <div style={{ position: "absolute", top: 26, left: 22 }}>
-        <BlockStack items={[
-          { label: "작품 A", color: "#1fb25a", w: 120 },
-          { label: "오브젝트 3개", color: "#1fb25a", w: 120 },
-        ]} scale={0.85} />
+      {/* left: 작품 A.ent */}
+      <div style={{ position: "absolute", top: 22, left: 40 }}>
+        {file("작품 A.ent")}
       </div>
-      {/* right stack */}
-      <div style={{ position: "absolute", top: 26, right: 22 }}>
-        <BlockStack items={[
-          { label: "작품 B", color: "#e89b3c", w: 120 },
-          { label: "오브젝트 2개", color: "#e89b3c", w: 120 },
-        ]} scale={0.85} />
+      {/* right: 작품 B.ent */}
+      <div style={{ position: "absolute", top: 22, right: 40 }}>
+        {file("작품 B.ent")}
       </div>
-      {/* arrow / plus */}
+      {/* + in the middle */}
       <div style={{
-        position: "absolute", top: "50%", left: "50%",
-        transform: "translate(-50%, -50%)",
-        width: 48, height: 48, borderRadius: 24,
+        position: "absolute", top: 44, left: "50%",
+        transform: "translateX(-50%)",
+        width: 44, height: 44, borderRadius: 22,
         background: "var(--ink)", color: "var(--bg)",
         display: "flex", alignItems: "center", justifyContent: "center",
-        fontSize: 24, fontWeight: 300,
+        fontSize: 22, fontWeight: 300,
         boxShadow: "0 8px 20px -6px rgba(0,0,0,.25)",
       }}>+</div>
       {/* bottom merged result */}
       <div style={{
-        position: "absolute", bottom: 22, left: "50%", transform: "translateX(-50%)",
+        position: "absolute", bottom: 18, left: "50%", transform: "translateX(-50%)",
+        textAlign: "center",
       }}>
         <div className="mono" style={{
-          fontSize: 10, color: "var(--ink-3)", textAlign: "center", marginBottom: 4,
+          fontSize: 10, color: "var(--ink-3)", marginBottom: 6,
+          letterSpacing: "0.08em",
         }}>MERGED</div>
-        <BlockShape w={180} color="var(--brand-ink)" variant="cap">작품 A + B · 5 오브젝트</BlockShape>
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 10,
+          background: "var(--brand-soft)",
+          border: "1px solid color-mix(in oklab, var(--brand) 45%, transparent)",
+          padding: "6px 14px 6px 8px", borderRadius: 100,
+        }}>
+          <img src="assets/ent-file.png" alt="" width={28} height={28} style={{ display: "block" }} />
+          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--brand-ink)", letterSpacing: "-0.01em" }}>
+            작품 A+B.ent · 5 오브젝트
+          </span>
+        </div>
       </div>
     </div>
   );
