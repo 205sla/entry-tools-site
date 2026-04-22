@@ -103,7 +103,7 @@ const Hero = () => {
 
 const HeroMotif = () => {
   return (
-    <div style={{ position: "relative", height: 500 }}>
+    <div style={{ position: "relative", height: 560 }}>
       {/* perspective card */}
       <div style={{
         position: "absolute",
