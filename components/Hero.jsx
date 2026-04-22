@@ -134,6 +134,18 @@ const HeroMotif = () => {
           alt="엔트리 블록 코드: 시작하기 버튼을 클릭했을 때 → 10번 반복하기 (도장 찍기 / 0.3초 기다리기 / 이동 방향으로 10만큼 움직이기 / 다음 모양으로 바꾸기)"
           style={{ display: "block", width: "100%", height: "auto" }}
         />
+        <div className="mono" style={{
+          fontSize: 10, color: "var(--ink-3)", marginTop: 10,
+          letterSpacing: "0.02em",
+        }}>
+          블록 이미지 © <a href="https://playentry.org/" target="_blank" rel="noreferrer"
+              style={{ color: "inherit", textDecoration: "underline" }}
+              onClick={e => e.stopPropagation()}>NAVER Connect Foundation</a>
+          {" · "}
+          <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noreferrer"
+             style={{ color: "inherit", textDecoration: "underline" }}
+             onClick={e => e.stopPropagation()}>CC BY 2.0</a>
+        </div>
 
         <div style={{ marginTop: 28, display: "flex", gap: 6, flexWrap: "wrap" }}>
           {["도서", "크롬 확장", "웹툴", "유튜브", "컨퍼런스"].map(t => (

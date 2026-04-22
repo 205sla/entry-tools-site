@@ -72,13 +72,31 @@ const Footer = () => {
           ))}
         </div>
         <div style={{
-          display: "flex", justifyContent: "space-between", alignItems: "center",
           borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 24,
           fontSize: 12, color: "rgba(255,255,255,0.5)",
           fontFamily: "var(--mono)",
+          display: "grid", gap: 10,
         }}>
-          <span>© 205 · entry tools collection</span>
-          <span>contact · 205@205.kr</span>
+          <div style={{
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+            flexWrap: "wrap", gap: 8,
+          }}>
+            <span>© 205 · entry tools collection</span>
+            <span>contact · 205@205.kr</span>
+          </div>
+          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", lineHeight: 1.55 }}>
+            이 페이지에 사용된 엔트리 블록 이미지는{" "}
+            <a href="https://playentry.org/" target="_blank" rel="noreferrer"
+               style={{ color: "inherit", textDecoration: "underline" }}>
+              © NAVER Connect Foundation
+            </a>
+            이며{" "}
+            <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noreferrer"
+               style={{ color: "inherit", textDecoration: "underline" }}>
+              CC BY 2.0
+            </a>
+            {" "}라이선스에 따라 출처를 표시합니다. Some Rights Reserved.
+          </div>
         </div>
       </div>
     </footer>
