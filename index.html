@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>205 엔트리 도구 모음 — EntryMerge · 디버깅 툴 · Save Manager · CODE 205</title>
-<meta name="description" content="10년 넘게 엔트리(playentry.org)를 써 온 205(이영호)가 만든 엔트리 관련 도구 모음. EntryMerge 작품 합치기, 엔트리 디버깅 툴, Entry Save Manager, CODE 205 알고리즘, 짧은 엔트리 단축 URL, 다락원 도서까지." />
-<meta name="keywords" content="엔트리, playentry, entry, 엔트리 작품 합치기, EntryMerge, 엔트리 디버깅, Entry Save Manager, CODE 205, 엔트리 알고리즘, 블록 코딩, 205, 이영호, 나는야 엔트리 게임 개발자, 나는야 엔트리 화가, 다락원, EDC" />
+<meta name="description" content="205(이영호)가 만든 엔트리 도구 모음. EntryMerge 작품 합치기, 디버깅 툴, Save Manager, CODE 205, 짧은 엔트리, 유저 찾기, 엔트리 온라인 멀티플레이와 AI 생성 가능성 검사, 다락원 도서까지." />
+<meta name="keywords" content="엔트리, playentry, entry, 엔트리 작품 합치기, EntryMerge, 엔트리 디버깅, Entry Save Manager, CODE 205, 엔트리 온라인, Entry Online, 엔트리 AI 체크, 엔트리 알고리즘, 블록 코딩, 205, 이영호, 나는야 엔트리 게임 개발자, 나는야 엔트리 화가, 다락원, EDC" />
 <meta name="author" content="이영호 (205)" />
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#1fb25a" />
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ko_KR" />
 <meta property="og:site_name" content="205 엔트리 도구 모음" />
 <meta property="og:title" content="205 엔트리 도구 모음 — EntryMerge · 디버깅 툴 · Save Manager · CODE 205" />
-<meta property="og:description" content="205(이영호)가 만든 엔트리 관련 확장프로그램·웹 서비스·도서 모음. 작품 합치기부터 블록 알고리즘까지." />
+<meta property="og:description" content="205(이영호)가 만든 엔트리 관련 확장프로그램·웹 서비스·도서 모음. 작품 합치기와 알고리즘, 온라인 멀티플레이와 AI 생성 가능성 검사까지." />
 <meta property="og:url" content="https://entry-tools.205.kr/" />
 <meta property="og:image" content="https://entry-tools.205.kr/assets/author-thumbs.png" />
 <meta property="og:image:alt" content="엔트리 도구 제작자 205 이영호" />
@@ -24,7 +24,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="205 엔트리 도구 모음" />
-<meta name="twitter:description" content="EntryMerge, 디버깅 툴, Save Manager, CODE 205 등 205가 만든 엔트리 도구를 한 페이지에서." />
+<meta name="twitter:description" content="EntryMerge, 디버깅 툴, Save Manager, CODE 205, 엔트리 온라인, AI 체크 등 205가 만든 엔트리 도구를 한 페이지에서." />
 <meta name="twitter:image" content="https://entry-tools.205.kr/assets/author-thumbs.png" />
 
 <!-- Structured data (JSON-LD) -->
@@ -68,7 +68,9 @@
         { "@type": "ListItem", "position": 6, "name": "엔트리 디버깅 툴 크롬 확장", "url": "https://chromewebstore.google.com/detail/meginahneajajhniecgebilpldnabkob" },
         { "@type": "ListItem", "position": 7, "name": "Entry Save Manager 크롬 확장", "url": "https://chromewebstore.google.com/detail/cdfhajcmlmldegpgnhpeihmhifhkengd" },
         { "@type": "ListItem", "position": 8, "name": "원큐패스 나는야 엔트리 게임 개발자 (다락원)" },
-        { "@type": "ListItem", "position": 9, "name": "원큐패스 나는야 엔트리 화가 (다락원)" }
+        { "@type": "ListItem", "position": 9, "name": "원큐패스 나는야 엔트리 화가 (다락원)" },
+        { "@type": "ListItem", "position": 10, "name": "엔트리 온라인 — 실시간 멀티플레이", "url": "https://online.205.kr/" },
+        { "@type": "ListItem", "position": 11, "name": "엔트리 AI 체크 — AI 생성 가능성 검사", "url": "https://ai.205.kr/" }
       ]
     }
   ]
@@ -179,6 +181,21 @@
 
   /* scrollbar reset */
   html { scroll-behavior: smooth; }
+
+  .sites-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 20px; }
+  .site-item { grid-column: span 4; min-width: 0; }
+  .site-item-wide { grid-column: span 6; }
+  .site-item-featured { grid-column: 1 / -1; }
+  @media (max-width: 900px) {
+    .site-item { grid-column: span 6; }
+    .site-item-featured { grid-column: 1 / -1; }
+    .featured-site-content { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 600px) {
+    .site-item { grid-column: 1 / -1; }
+    .featured-site { padding: 24px !important; }
+    .featured-site h3 { font-size: 30px !important; }
+  }
 </style>
 </head>
 <body>

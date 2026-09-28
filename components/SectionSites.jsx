@@ -34,6 +34,24 @@ const SectionSites = () => {
       category: "통계",
       accent: "#4a6db0",
     },
+    {
+      name: "엔트리 온라인 — 실시간 멀티플레이",
+      url: "https://online.205.kr/",
+      host: "online.205.kr",
+      desc: "엔트리 작품의 변수와 리스트를 같은 방의 플레이어들과 실시간으로 공유하는 서비스. 내 작품에 멀티플레이를 연결하고, 다른 사람들이 만든 온라인 작품도 만나보세요.",
+      category: "멀티플레이",
+      accent: "#4a6db0",
+      wide: true,
+    },
+    {
+      name: "엔트리 AI 체크 — AI로 만들었을까요?",
+      url: "https://ai.205.kr/",
+      host: "ai.205.kr",
+      desc: "공개된 엔트리 작품 링크로 AI 생성 가능성을 확인하는 참고용 검사. 설치나 로그인 없이 이용할 수 있으며, 결과에는 오탐·미탐 등 오류가 있을 수 있습니다.",
+      category: "작품 검사",
+      accent: "#176b50",
+      wide: true,
+    },
   ];
 
   return (
@@ -42,24 +60,20 @@ const SectionSites = () => {
         <SectionHeader
           eyebrow="03 · web services"
           title="웹 서비스"
-          desc="설치 없이 브라우저에서 바로 쓰는 도구들. 각각의 도메인으로 독립 운영됩니다."
+          desc="창작과 학습, 멀티플레이와 작품 검사까지. 각각의 도메인에서 만나는 엔트리 웹 서비스입니다."
           count={sites.length}
         />
 
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
-          gap: 20,
-        }}>
+        <div className="sites-grid">
           {/* featured (알고리즘 테스트) */}
           {sites.filter(s => s.featured).map(s => (
-            <div key={s.url} style={{ gridColumn: "span 12" }}>
+            <div key={s.url} className="site-item site-item-featured">
               <FeaturedSite site={s} />
             </div>
           ))}
           {/* others */}
           {sites.filter(s => !s.featured).map(s => (
-            <div key={s.url} style={{ gridColumn: "span 4" }}>
+            <div key={s.url} className={`site-item${s.wide ? " site-item-wide" : ""}`}>
               <SiteCard site={s} />
             </div>
           ))}
@@ -72,7 +86,7 @@ const SectionSites = () => {
 const FeaturedSite = ({ site }) => {
   const [hover, setHover] = React.useState(false);
   return (
-    <a href={site.url} target="_blank" rel="noreferrer"
+    <a className="featured-site" href={site.url} target="_blank" rel="noreferrer"
        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
        style={{
       display: "block",
@@ -93,7 +107,7 @@ const FeaturedSite = ({ site }) => {
         opacity: .08,
       }} />
 
-      <div style={{ position: "relative", display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 40, alignItems: "center" }}>
+      <div className="featured-site-content" style={{ position: "relative", display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 40, alignItems: "center" }}>
         <div>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
             <span style={{

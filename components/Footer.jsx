@@ -22,6 +22,8 @@ const Footer = () => {
         ["code.205.kr", "https://code.205.kr"],
         ["엔트리.org", "https://xn--oy2b95t44j.org/"],
         ["유저찾기.엔트리.org", "https://xn--ok0bx68bhtav5k.xn--oy2b95t44j.org/"],
+        ["엔트리 온라인", "https://online.205.kr/"],
+        ["엔트리 AI 체크", "https://ai.205.kr/"],
       ],
     },
     {

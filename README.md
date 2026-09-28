@@ -17,10 +17,10 @@
 
 | 섹션 | 내용 |
 |---|---|
-| **Hero** | 타이포·통계(4 웹 서비스 / 3 크롬 확장 / 2 출간 도서 / 10y 활동), 작품 카드 모티프 |
+| **Hero** | 타이포·통계(6 웹 서비스 / 3 크롬 확장 / 2 출간 도서 / 10y 활동), 작품 카드 모티프 |
 | **01 · Books** | 다락원 《원큐패스 나는야 엔트리 게임 개발자》, 《나는야 엔트리 화가》 |
 | **02 · Extensions** | EntryMerge 작품 합치기 · 엔트리 디버깅 툴 · Entry Save Manager |
-| **03 · Web Services** | entry.205.kr · code.205.kr · 짧은 엔트리(엔트리.org) · 유저 찾기 |
+| **03 · Web Services** | entry.205.kr · code.205.kr · 짧은 엔트리(엔트리.org) · 유저 찾기 · 엔트리 온라인(online.205.kr) · 엔트리 AI 체크(ai.205.kr) |
 | **04 · Collaboration** | 엔트리 넥스트 챌린지 제작자 참여, EDC 2023 발표 |
 | **05 · Channels** | YouTube "205와 엔트리" · Discord "엔트리 유튜버들" · 엔트리 밴드 |
 | **About** | 제작자 소개(이영호 / 205.kr) |
@@ -105,7 +105,7 @@ CNAME   entry-tools   205sla.github.io
 
 - `<title>` / `meta description` / `keywords` / `canonical`
 - Open Graph · Twitter Card
-- JSON-LD (`WebSite` / `Person` / `ItemList` — 도구 9개 나열)
+- JSON-LD (`WebSite` / `Person` / `ItemList` — 도구·도서 11개 나열)
 - [`robots.txt`](robots.txt), [`sitemap.xml`](sitemap.xml)
 - 인라인 SVG 파비콘 (브랜드 로고마크)
 
@@ -115,7 +115,7 @@ CNAME   entry-tools   205sla.github.io
 
 **새 확장 추가**: [`components/SectionExtensions.jsx`](components/SectionExtensions.jsx) 맨 위 `exts` 배열에 객체를 추가. `featured: true`는 한 개만 — 12-column 풀폭 카드로 렌더링됩니다.
 
-**새 웹 서비스 추가**: [`components/SectionSites.jsx`](components/SectionSites.jsx)의 `sites` 배열. 비-featured는 `span 4`로 3개가 한 줄. 4개 이상이면 그리드 수정 필요.
+**새 웹 서비스 추가**: [`components/SectionSites.jsx`](components/SectionSites.jsx)의 `sites` 배열. 기본 카드는 12열 중 4열, `wide: true` 카드는 6열, featured는 전체 너비를 쓴다. 태블릿에서는 2열, 모바일에서는 1열 카드 배치로 전환한다. 공개 AI 검사 소개는 참고용·오탐/미탐 안내를 유지하며 내부 판별 기준을 싣지 않는다.
 
 **새 채널 추가**: [`components/SectionChannels.jsx`](components/SectionChannels.jsx)의 `channels` 배열. 현재 3-column 그리드.
 
