@@ -4,6 +4,7 @@ import { readFile, stat, readdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
+import { createHash } from "node:crypto";
 import { sites, exts, books } from "../data/catalog.js";
 import { site, questions, choices } from "../data/site.js";
 
@@ -71,4 +72,9 @@ test("published assets exist and the artifact excludes source and dependencies",
   }
   const js = await readFile(published("assets/site.js"));
   assert.ok(gzipSync(js).length < 85000, "production JavaScript exceeds 85 KB gzipped");
+  const css = await readFile(published("style.css"));
+  const version = createHash("sha256").update(js).update(css).digest("hex").slice(0, 12);
+  assert.ok(html.includes(`assets/site.js?v=${version}`), "script cache version differs from published assets");
+  assert.ok(html.includes(`style.css?v=${version}`), "stylesheet cache version differs from published assets");
+  assert.ok(!html.includes("\r"), "generated HTML must use consistent line endings");
 });

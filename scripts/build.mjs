@@ -67,9 +67,9 @@ const schema = {
 };
 const escapeHtml = value => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 const js = await readFile(at("assets/site.js"));
-const css = await readFile(at("style.css"));
+const css = (await readFile(at("style.css"), "utf8")).replaceAll("\r\n", "\n");
 const version = createHash("sha256").update(js).update(css).digest("hex").slice(0, 12);
-let template = await readFile(at("page.html"), "utf8");
+let template = (await readFile(at("page.html"), "utf8")).replaceAll("\r\n", "\n");
 const replacements = {
   TITLE: escapeHtml(site.title), DESCRIPTION: escapeHtml(site.description),
   STRUCTURED_DATA: JSON.stringify(schema, null, 2).replaceAll("<", "\\u003c"),
@@ -90,6 +90,7 @@ await mkdir(at("dist/assets"), { recursive: true });
 const files = ["index.html", "style.css", "robots.txt", "sitemap.xml", "llms.txt", "CNAME", "favicon.svg", "404.html", "indexnow-key.txt", ".nojekyll"];
 files.push(...(await readdir(root)).filter(name => /^naver[a-z0-9]+\.html$/.test(name)));
 for (const file of files) await cp(at(file), at("dist/" + file));
+await writeFile(at("dist/style.css"), css);
 await cp(at("assets"), at("dist/assets"), { recursive: true });
 console.log(`Built ${sites.length} services, ${exts.length} extensions, ${books.length} books and ${questions.length} answers into static HTML.`);
 console.log(`HTML: ${Buffer.byteLength(html)} bytes; production JavaScript: ${js.length} bytes.`);
