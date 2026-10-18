@@ -17,10 +17,10 @@
 
 | 섹션 | 내용 |
 |---|---|
-| **Hero** | 타이포·통계(6 웹 서비스 / 3 크롬 확장 / 2 출간 도서 / 10y 활동), 작품 카드 모티프 |
+| **Hero** | 타이포·통계(7 웹 서비스 / 3 크롬 확장 / 2 출간 도서 / 10y 활동), 작품 카드 모티프 |
 | **01 · Books** | 다락원 《원큐패스 나는야 엔트리 게임 개발자》, 《나는야 엔트리 화가》 |
 | **02 · Extensions** | EntryMerge 작품 합치기 · 엔트리 디버깅 툴 · Entry Save Manager |
-| **03 · Web Services** | entry.205.kr · code.205.kr · 짧은 엔트리(엔트리.org) · 유저 찾기 · 엔트리 온라인(online.205.kr) · 엔트리 AI 체크(ai.205.kr) |
+| **03 · Web Services** | entry.205.kr · code.205.kr · 짧은 엔트리(엔트리.org) · 유저 찾기 · 엔트리 온라인(online.205.kr) · 엔트리 AI 체크(ai.205.kr) · [엔트리 바이브코딩](https://xn--o01b54khubg9qb1j.xn--oy2b95t44j.org/) |
 | **04 · Collaboration** | 엔트리 넥스트 챌린지 제작자 참여, EDC 2023 발표 |
 | **05 · Channels** | YouTube "205와 엔트리" · Discord "엔트리 유튜버들" · 엔트리 밴드 |
 | **About** | 제작자 소개(이영호 / 205.kr) |
@@ -105,7 +105,7 @@ CNAME   entry-tools   205sla.github.io
 
 - `<title>` / `meta description` / `keywords` / `canonical`
 - Open Graph · Twitter Card
-- JSON-LD (`WebSite` / `Person` / `ItemList` — 도구·도서 11개 나열)
+- JSON-LD (`WebSite` / `Person` / `ItemList` — 도구·도서 12개 나열)
 - [`robots.txt`](robots.txt), [`sitemap.xml`](sitemap.xml)
 - 인라인 SVG 파비콘 (브랜드 로고마크)
 
