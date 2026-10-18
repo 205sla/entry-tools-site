@@ -1,8 +1,11 @@
+import React from "react";
+import { SocketBadge, BlockStack } from "./Blocks.jsx";
+
 const About = () => {
   return (
     <section id="about" style={{ padding: "96px 0" }}>
       <div className="wrap">
-        <div style={{
+        <div className="about-panel" style={{
           display: "grid",
           gridTemplateColumns: "1.1fr 1fr",
           gap: 40,
@@ -57,7 +60,7 @@ const AuthorStage = () => {
   const [variant, setVariant] = React.useState("thumbs");
   const src = variant === "thumbs" ? "assets/author-thumbs.png" : "assets/author-ok.png";
   return (
-    <div style={{ position: "relative", width: 360, height: 380 }}>
+    <div className="author-stage" style={{ position: "relative", width: 360, height: 380 }}>
       {/* background disc */}
       <div aria-hidden style={{
         position: "absolute", inset: "8% 8% 8% 8%",
@@ -68,7 +71,7 @@ const AuthorStage = () => {
       <svg aria-hidden viewBox="0 0 360 380" style={{ position: "absolute", inset: 0 }}>
         <circle cx="180" cy="190" r="155" fill="none" stroke="var(--brand)" strokeWidth="1.5" strokeDasharray="2 8" opacity=".5"/>
       </svg>
-      <img src={src} alt="이영호" style={{
+      <img src={src} alt="제작자 이영호(205)의 캐릭터" width="360" height="380" loading="lazy" decoding="async" style={{
         position: "absolute", inset: 0, width: "100%", height: "100%",
         objectFit: "contain",
         filter: "drop-shadow(0 14px 20px rgba(0,0,0,.12))",
@@ -81,8 +84,8 @@ const AuthorStage = () => {
         borderRadius: 100, boxShadow: "var(--shadow-s)",
       }}>
         {[["thumbs","👍"],["ok","👌"]].map(([k, l]) => (
-          <button key={k} onClick={() => setVariant(k)} style={{
-            padding: "6px 14px", fontSize: 12, fontWeight: 600,
+          <button key={k} aria-label={k === "thumbs" ? "엄지를 든 캐릭터" : "오케이 손 모양 캐릭터"} aria-pressed={variant === k} onClick={() => setVariant(k)} style={{
+            minHeight: 44, minWidth: 44, padding: "6px 14px", fontSize: 16, fontWeight: 600,
             border: "none", borderRadius: 100,
             background: variant === k ? "var(--ink)" : "transparent",
             color: variant === k ? "var(--bg)" : "var(--ink-2)",
@@ -160,4 +163,4 @@ const ProfileCard = () => {
   );
 };
 
-Object.assign(window, { About });
+export { About };

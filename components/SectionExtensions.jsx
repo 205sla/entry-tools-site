@@ -1,31 +1,8 @@
+import React from "react";
+import { SectionHeader } from "./SectionBooks.jsx";
+import { exts } from "../data/catalog.js";
+
 const SectionExtensions = () => {
-  const exts = [
-    {
-      name: "EntryMerge — 엔트리 작품 합치기",
-      short: "EntryMerge",
-      desc: "엔트리(playentry.org) 작품 파일(.ent)을 하나로 합쳐주는 무료 도구. 여러 명이 각자 만든 오브젝트·코드·변수를 한 작품으로 병합해, 합작이나 백업 통합이 편해집니다.",
-      url: "https://chromewebstore.google.com/detail/entrymerge-%EC%97%94%ED%8A%B8%EB%A6%AC-%EC%9E%91%ED%92%88-%ED%95%A9%EC%B9%98%EA%B8%B0/afkojcdofphbphfalnjgidbefbmndgjm",
-      platform: "Chrome",
-      tags: ["작품 병합", "합작"],
-      featured: true,
-    },
-    {
-      name: "엔트리 디버깅 툴",
-      short: "Entry Debug",
-      desc: "엔트리 코딩 플랫폼의 변수와 리스트를 실시간으로 모니터링하고 값을 직접 수정할 수 있는 디버깅 도구. 작품을 만드는 중 데이터 흐름을 눈으로 확인하며 오류를 잡아냅니다.",
-      url: "https://chromewebstore.google.com/detail/%EC%97%94%ED%8A%B8%EB%A6%AC-%EB%94%94%EB%B2%84%EA%B9%85-%ED%88%B4/meginahneajajhniecgebilpldnabkob",
-      platform: "Chrome",
-      tags: ["변수·리스트", "디버깅"],
-    },
-    {
-      name: "Entry Save Manager",
-      short: "Save Manager",
-      desc: "이름 앞에 '@'를 붙인 변수·리스트를 브라우저 로컬에 자동 저장·복원해주는 확장. RPG나 타이쿤처럼 오래 즐기는 작품에 세이브 기능을 넣을 때 유용합니다.",
-      url: "https://chromewebstore.google.com/detail/entry-save-manager/cdfhajcmlmldegpgnhpeihmhifhkengd",
-      platform: "Chrome",
-      tags: ["세이브", "로컬 저장"],
-    },
-  ];
 
   return (
     <section id="extensions" style={{ padding: "56px 0", background: "var(--bg-2)" }}>
@@ -39,11 +16,11 @@ const SectionExtensions = () => {
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
+          gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
           gap: 20,
         }}>
           {exts.map((e, i) => (
-            <div key={e.name} style={{
+            <div key={e.name} className="extension-item" style={{
               gridColumn: e.featured ? "span 12" : (i === 1 ? "span 6" : "span 6"),
             }}>
               <ExtensionCard ext={e} wide={e.featured} />
@@ -58,7 +35,7 @@ const SectionExtensions = () => {
 const ExtensionCard = ({ ext, wide }) => {
   const [hover, setHover] = React.useState(false);
   return (
-    <a href={ext.url} target="_blank" rel="noreferrer"
+    <a id={ext.id} className="extension-card" href={ext.url} target="_blank" rel="noreferrer"
        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
        style={{
       display: "block",
@@ -74,7 +51,7 @@ const ExtensionCard = ({ ext, wide }) => {
       boxShadow: hover ? "var(--shadow-m)" : "var(--shadow-s)",
     }}>
       {/* platform chip */}
-      <div style={{
+      <div className="platform-chip" style={{
         position: "absolute", top: wide ? 28 : 22, right: wide ? 28 : 22,
         zIndex: 2,
         display: "flex", alignItems: "center", gap: 6,
@@ -86,7 +63,7 @@ const ExtensionCard = ({ ext, wide }) => {
         {ext.platform.toUpperCase()}
       </div>
 
-      <div style={{
+      <div className="extension-content" style={{
         display: wide ? "grid" : "block",
         gridTemplateColumns: wide ? "1fr 1fr" : undefined,
         gap: 40,
@@ -141,7 +118,7 @@ const ExtensionVisual = ({ name }) => {
       <img
         src="assets/ent-file.png"
         alt=""
-        width={64} height={64}
+        width={64} height={64} loading="lazy" decoding="async"
         style={{ display: "block", margin: "0 auto", filter: "drop-shadow(0 6px 10px rgba(31,178,90,.25))" }}
       />
       <div className="mono" style={{
@@ -151,7 +128,7 @@ const ExtensionVisual = ({ name }) => {
   );
 
   return (
-    <div style={{
+    <div className="extension-visual" style={{
       position: "relative",
       height: 220,
       background: "var(--bg)",
@@ -203,4 +180,4 @@ const ExtensionVisual = ({ name }) => {
   );
 };
 
-Object.assign(window, { SectionExtensions });
+export { SectionExtensions };

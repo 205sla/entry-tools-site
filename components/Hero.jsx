@@ -1,6 +1,10 @@
+import React from "react";
+import { SocketBadge } from "./Blocks.jsx";
+import { sites, exts, books } from "../data/catalog.js";
+
 const Hero = () => {
   return (
-    <section id="top" style={{
+    <section id="top" className="hero-section" style={{
       position: "relative",
       paddingTop: 56, paddingBottom: 80,
       overflow: "hidden",
@@ -17,25 +21,25 @@ const Hero = () => {
       }} />
 
       <div className="wrap" style={{ position: "relative" }}>
-        <div style={{
+        <div className="hero-grid" style={{
           display: "grid",
           gridTemplateColumns: "1.25fr 1fr",
           gap: 64, alignItems: "center",
         }}>
           {/* left: copy */}
           <div>
-            <SocketBadge>made with entry · since 2015</SocketBadge>
+            <SocketBadge>205 · made with entry · since 2015</SocketBadge>
 
-            <h1 style={{
+            <h1 className="hero-title" style={{
               fontFamily: "var(--sans)",
               fontSize: 68, lineHeight: 1.02,
               fontWeight: 800,
               letterSpacing: "-0.035em",
               margin: "22px 0 18px",
             }}>
-              엔트리를 더<br />
+              205 엔트리<br />
               <span style={{ position: "relative", display: "inline-block" }}>
-                <span style={{ position: "relative", zIndex: 1 }}>즐겁게, 편리하게.</span>
+                <span style={{ position: "relative", zIndex: 1 }}>도구 모음</span>
                 <span aria-hidden style={{
                   position: "absolute", left: -4, right: -4, bottom: 6, height: 18,
                   background: "var(--brand-soft)", zIndex: 0, borderRadius: 3,
@@ -47,12 +51,12 @@ const Hero = () => {
               color: "var(--ink-2)", maxWidth: 520,
               margin: "0 0 32px",
             }}>
-              10년 넘게 엔트리를 쓰며, 필요한 도구가 없을 땐 직접 만들어 왔습니다.
-              EntryMerge·Save Manager·CODE 205 같은 확장과 웹 서비스, 다락원에서 낸 도서까지 — <strong style={{ color: "var(--ink)", fontWeight: 700 }}>205가 만든 엔트리 도구 모음</strong>입니다.
+              이영호(205)가 만든 <strong style={{ color: "var(--ink)", fontWeight: 700 }}>웹 서비스 {sites.length}개와 크롬 확장프로그램 {exts.length}개, 엔트리 도서 {books.length}권</strong>을 모았습니다.
+              작품 합치기부터 바이브코딩, 변수 확인, 세이브와 멀티플레이까지. 만들고 싶은 것에 맞는 도구를 찾아보세요.
             </p>
 
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-              <a href="#extensions" style={{
+              <a href="#choose" style={{
                 padding: "14px 22px",
                 background: "var(--ink)", color: "var(--bg)",
                 borderRadius: 10, fontWeight: 600, fontSize: 15,
@@ -72,7 +76,7 @@ const Hero = () => {
             </div>
 
             {/* stats */}
-            <div style={{
+            <div className="hero-stats" style={{
               marginTop: 44,
               display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
               gap: 20,
@@ -80,9 +84,9 @@ const Hero = () => {
               borderTop: "1px solid var(--line-2)",
             }}>
               {[
-                { k: "7", v: "웹 서비스" },
-                { k: "3", v: "크롬 확장" },
-                { k: "2", v: "출간 도서" },
+                { k: String(sites.length), v: "웹 서비스" },
+                { k: String(exts.length), v: "크롬 확장" },
+                { k: String(books.length), v: "출간 도서" },
                 { k: "10y", v: "엔트리 활동" },
               ].map(s => (
                 <div key={s.v}>
@@ -103,9 +107,9 @@ const Hero = () => {
 
 const HeroMotif = () => {
   return (
-    <div style={{ position: "relative", height: 560 }}>
+    <div className="hero-motif" style={{ position: "relative", height: 560 }}>
       {/* perspective card */}
-      <div style={{
+      <div className="hero-workspace" style={{
         position: "absolute",
         top: 20, right: 0,
         width: 440, padding: "32px 28px 48px",
@@ -131,6 +135,7 @@ const HeroMotif = () => {
 
         <img
           src="assets/hero-blocks.png"
+          width="510" height="388" decoding="async"
           alt="엔트리 블록 코드: 시작하기 버튼을 클릭했을 때 → 10번 반복하기 (도장 찍기 / 0.3초 기다리기 / 이동 방향으로 10만큼 움직이기 / 다음 모양으로 바꾸기)"
           style={{ display: "block", width: "100%", height: "auto" }}
         />
@@ -148,18 +153,18 @@ const HeroMotif = () => {
       </div>
 
       {/* author character floating */}
-      <div style={{
+      <div className="hero-character" style={{
         position: "absolute",
         bottom: -10, left: -20,
         width: 170, height: 180,
         transform: "rotate(-4deg)",
         filter: "drop-shadow(0 12px 18px rgba(0,0,0,.14))",
       }}>
-        <img src="assets/author-thumbs.png" alt="이영호" style={{ width: "100%", height: "100%", objectFit: "contain" }}/>
+        <img src="assets/author-thumbs.png" alt="제작자 이영호(205)의 캐릭터" width="170" height="180" decoding="async" style={{ width: "100%", height: "100%", objectFit: "contain" }}/>
       </div>
 
       {/* small secondary card */}
-      <div style={{
+      <div className="hero-secondary" style={{
         position: "absolute",
         bottom: 10, left: 140,
         width: 210,
@@ -180,4 +185,4 @@ const HeroMotif = () => {
   );
 };
 
-Object.assign(window, { Hero });
+export { Hero };

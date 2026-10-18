@@ -1,0 +1,20 @@
+{
+  "name": "entry-tools-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --test tests/site.test.mjs",
+    "preview": "node scripts/serve.mjs",
+    "notify-search": "node scripts/indexnow.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

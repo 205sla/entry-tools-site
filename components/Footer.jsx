@@ -1,3 +1,7 @@
+import React from "react";
+import { LogoMark } from "./Nav.jsx";
+import { sites } from "../data/catalog.js";
+
 const Footer = () => {
   const cols = [
     {
@@ -17,15 +21,7 @@ const Footer = () => {
     },
     {
       h: "웹 서비스",
-      items: [
-        ["entry.205.kr", "https://entry.205.kr"],
-        ["code.205.kr", "https://code.205.kr"],
-        ["엔트리.org", "https://xn--oy2b95t44j.org/"],
-        ["유저찾기.엔트리.org", "https://xn--ok0bx68bhtav5k.xn--oy2b95t44j.org/"],
-        ["엔트리 온라인", "https://online.205.kr/"],
-        ["엔트리 AI 체크", "https://ai.205.kr/"],
-        ["엔트리 바이브코딩", "https://xn--o01b54khubg9qb1j.xn--oy2b95t44j.org/"],
-      ],
+      items: sites.map(site => [site.name.split(" — ")[0], site.url]),
     },
     {
       h: "채널",
@@ -46,7 +42,7 @@ const Footer = () => {
       marginTop: 40,
     }}>
       <div className="wrap">
-        <div style={{
+        <div className="footer-grid" style={{
           display: "grid", gridTemplateColumns: "1.4fr repeat(4, 1fr)",
           gap: 40, marginBottom: 48,
         }}>
@@ -56,7 +52,7 @@ const Footer = () => {
               <span style={{ fontSize: 18, fontWeight: 800 }}>205<span style={{ color: "var(--brand)" }}>.</span>kr</span>
             </div>
             <p style={{ marginTop: 14, color: "rgba(255,255,255,0.6)", fontSize: 14, maxWidth: 280 }}>
-              엔트리를 위한 도구를 만드는 이영호(205). 확장프로그램, 웹 서비스, 도서로 엔트리 창작 경험을 조금씩 넓혀갑니다.
+              엔트리를 위한 도구를 만드는 이영호(205). 비공식 개인 프로젝트로 확장프로그램, 웹 서비스, 도서를 소개합니다.
             </p>
           </div>
           {cols.map(col => (
@@ -106,4 +102,4 @@ const Footer = () => {
   );
 };
 
-Object.assign(window, { Footer });
+export { Footer };

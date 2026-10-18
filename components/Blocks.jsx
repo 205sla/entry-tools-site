@@ -1,3 +1,6 @@
+import React from "react";
+
+
 // Abstract block-coding motif primitives (NOT copying Entry's UI).
 // A Block is a rounded pill with a notch on top and a tab on bottom,
 // suggesting "snap-together" pieces — we use this only for visual rhythm.
@@ -107,4 +110,4 @@ const SocketBadge = ({ children, tone = "brand" }) => {
   );
 };
 
-Object.assign(window, { BlockShape, BlockStack, SocketBadge });
+export { BlockShape, BlockStack, SocketBadge };

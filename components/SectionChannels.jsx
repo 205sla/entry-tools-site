@@ -1,3 +1,6 @@
+import React from "react";
+import { SectionHeader } from "./SectionBooks.jsx";
+
 // Brand logos rendered inside the frosted-glass icon chip.
 // Each logo is designed to read as white (or near-white) on the colored brand gradient.
 const ChannelLogo = ({ kind }) => {
@@ -84,13 +87,13 @@ const SectionChannels = () => {
     <section id="channels" style={{ padding: "56px 0 96px" }}>
       <div className="wrap">
         <SectionHeader
-          eyebrow="04 · channels"
+          eyebrow="05 · channels"
           title="커뮤니티 채널"
           desc="서비스를 만들면서 쌓인 기록들. 유튜브에서 보고, 밴드에서 이야기 나눠주세요."
           count={channels.length}
         />
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
+        <div className="channels-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 20 }}>
           {channels.map(c => <ChannelCard key={c.url} c={c} />)}
         </div>
       </div>
@@ -101,7 +104,7 @@ const SectionChannels = () => {
 const ChannelCard = ({ c }) => {
   const [hover, setHover] = React.useState(false);
   return (
-    <a href={c.url} target="_blank" rel="noreferrer"
+    <a className="channel-card" href={c.url} target="_blank" rel="noreferrer"
        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
        style={{
       display: "block",
@@ -137,7 +140,7 @@ const ChannelCard = ({ c }) => {
         </div>
       </div>
       <div style={{ padding: 22 }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+        <div className="channel-meta" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8, flexWrap: "wrap", gap: 8 }}>
           <span className="mono" style={{ fontSize: 11, color: "var(--ink-3)", letterSpacing: "0.04em" }}>{c.host}</span>
           <span className="mono" style={{ fontSize: 11, color: "var(--ink-2)" }}>{c.handle}</span>
         </div>
@@ -158,4 +161,4 @@ const ChannelCard = ({ c }) => {
   );
 };
 
-Object.assign(window, { SectionChannels });
+export { SectionChannels };

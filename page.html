@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko" data-theme="light" data-density="comfortable">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+<meta name="keywords" content="엔트리, playentry, entry, 엔트리 작품 합치기, EntryMerge, 엔트리 디버깅, Entry Save Manager, CODE 205, 엔트리 온라인, Entry Online, 엔트리 AI 체크, 엔트리 바이브코딩, 엔트리 알고리즘, 블록 코딩, 205, 이영호, 나는야 엔트리 게임 개발자, 나는야 엔트리 화가, 다락원, EDC" />
+<meta name="author" content="이영호 (205)" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#1fb25a" />
+<link rel="canonical" href="https://entry-tools.205.kr/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:site_name" content="205 엔트리 도구 모음" />
+<meta property="og:title" content="{{TITLE}}" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+<meta property="og:url" content="https://entry-tools.205.kr/" />
+<meta property="og:image" content="https://entry-tools.205.kr/assets/author-thumbs.png" />
+<meta property="og:image:width" content="1378" />
+<meta property="og:image:height" content="1378" />
+<meta property="og:image:alt" content="엔트리 도구 제작자 205 이영호" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{TITLE}}" />
+<meta name="twitter:description" content="{{DESCRIPTION}}" />
+<meta name="twitter:image:alt" content="엔트리 도구 제작자 이영호(205)의 캐릭터" />
+<meta name="twitter:image" content="https://entry-tools.205.kr/assets/author-thumbs.png" />
+
+<!-- Structured data (JSON-LD) -->
+<script type="application/ld+json">{{STRUCTURED_DATA}}</script>
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css?v={{ASSET_VERSION}}" />
+</head>
+<body>
+<div id="root">{{APP_HTML}}</div>
+
+<script>
+  // tweaks default block (host parses this)
+  window.__TWEAKS__ = /*EDITMODE-BEGIN*/{{TWEAKS}}/*EDITMODE-END*/;
+</script>
+
+<script defer src="assets/site.js?v={{ASSET_VERSION}}"></script>
+</body>
+</html>

@@ -1,3 +1,6 @@
+import React from "react";
+import { SectionHeader } from "./SectionBooks.jsx";
+
 const SectionCollab = () => {
   const items = [
     {
@@ -22,7 +25,7 @@ const SectionCollab = () => {
     <section id="collab" style={{ padding: "56px 0", background: "var(--bg-2)" }}>
       <div className="wrap">
         <SectionHeader
-          eyebrow="05 · collaboration & talks"
+          eyebrow="04 · collaboration & talks"
           title="협업과 발표"
           desc="혼자 만든 도구들을 넘어서, 엔트리 공식 채널과 함께 한 활동들."
           count={items.length}
@@ -39,7 +42,7 @@ const SectionCollab = () => {
 const CollabRow = ({ it }) => {
   const [hover, setHover] = React.useState(false);
   return (
-    <a href={it.url} target="_blank" rel="noreferrer"
+    <a className="collab-row" href={it.url} target="_blank" rel="noreferrer"
        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
        style={{
       display: "grid",
@@ -75,4 +78,4 @@ const CollabRow = ({ it }) => {
   );
 };
 
-Object.assign(window, { SectionCollab });
+export { SectionCollab };

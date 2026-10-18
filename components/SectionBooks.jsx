@@ -1,12 +1,16 @@
+import React from "react";
+import { SocketBadge } from "./Blocks.jsx";
+import { books } from "../data/catalog.js";
+
 // Reusable section header
-const SectionHeader = ({ eyebrow, title, desc, count }) => (
-  <div style={{
+const SectionHeader = ({ eyebrow, title, titleId, desc, count }) => (
+  <div className="section-header" style={{
     display: "flex", alignItems: "flex-end", justifyContent: "space-between",
     marginBottom: 32, gap: 40,
   }}>
     <div>
       <SocketBadge>{eyebrow}</SocketBadge>
-      <h2 style={{
+      <h2 id={titleId} style={{
         fontSize: 40, fontWeight: 800, letterSpacing: "-0.03em",
         margin: "14px 0 10px", lineHeight: 1.1,
       }}>
@@ -17,7 +21,7 @@ const SectionHeader = ({ eyebrow, title, desc, count }) => (
       </p>
     </div>
     {count != null && (
-      <div style={{ textAlign: "right", flexShrink: 0 }}>
+      <div className="section-count" style={{ textAlign: "right", flexShrink: 0 }}>
         <div className="mono" style={{ fontSize: 12, color: "var(--ink-3)", letterSpacing: "0.08em" }}>ITEMS</div>
         <div style={{ fontFamily: "var(--display)", fontSize: 48, fontWeight: 700, lineHeight: 1, letterSpacing: "-0.03em" }}>
           {String(count).padStart(2, "0")}
@@ -28,32 +32,6 @@ const SectionHeader = ({ eyebrow, title, desc, count }) => (
 );
 
 const SectionBooks = () => {
-  const books = [
-    {
-      title: "원큐패스 나는야 엔트리 게임 개발자",
-      subtitle: "스태프 선정 & 인기 작품 따라 만들기. 엔트리 기초부터 게임 제작까지, 코딩도 하고 게임도 하는 입문서.",
-      publisher: "다락원",
-      date: "2024.09.10",
-      pages: 260,
-      isbn: "9788927774280",
-      cover: "assets/book-game.jpg",
-      accent: "#9ad82e",
-      tag: "GAME",
-      authors: "이영호 · 최홍송",
-    },
-    {
-      title: "원큐패스 나는야 엔트리 화가",
-      subtitle: "코딩으로 만드는 예술작품. 블록코딩으로 디지털 아트·애니메이션·인터랙티브 작품을 완성합니다.",
-      publisher: "다락원",
-      date: "2023.10.10",
-      pages: 260,
-      isbn: "9788927773375",
-      cover: "assets/book-art.jpg",
-      accent: "#ff4d4d",
-      tag: "ART",
-      authors: "이영호 · 이채은",
-    },
-  ];
 
   return (
     <section id="books" style={{ padding: "96px 0 56px" }}>
@@ -65,7 +43,7 @@ const SectionBooks = () => {
           count={books.length}
         />
 
-        <div style={{
+        <div className="books-grid" style={{
           display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20,
         }}>
           {books.map(b => <BookCard key={b.isbn} {...b} />)}
@@ -75,9 +53,9 @@ const SectionBooks = () => {
   );
 };
 
-const BookCard = ({ title, subtitle, publisher, date, pages, isbn, cover, accent, tag, authors }) => {
+const BookCard = ({ id, title, subtitle, publisher, date, pages, isbn, cover, accent, tag, authors }) => {
   return (
-    <article style={{
+    <article id={id} className="book-card" style={{
       background: "var(--surface)",
       border: "1px solid var(--line)",
       borderRadius: 18,
@@ -98,14 +76,14 @@ const BookCard = ({ title, subtitle, publisher, date, pages, isbn, cover, accent
       }} />
 
       {/* real book cover */}
-      <div style={{
+      <div className="book-cover" style={{
         position: "relative",
         width: 170, height: 232,
         borderRadius: "3px 8px 8px 3px",
         overflow: "hidden",
         boxShadow: `-2px 4px 0 0 color-mix(in oklab, ${accent} 40%, black), 0 14px 30px -12px rgba(0,0,0,.3)`,
       }}>
-        <img src={cover} alt={title} style={{
+        <img src={cover} alt={title} width="170" height="232" loading="lazy" decoding="async" style={{
           width: "100%", height: "100%", objectFit: "cover", display: "block",
         }} />
         <div style={{
@@ -117,7 +95,7 @@ const BookCard = ({ title, subtitle, publisher, date, pages, isbn, cover, accent
 
       {/* info */}
       <div style={{ position: "relative" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10, flexWrap: "wrap" }}>
           <span className="mono" style={{
             fontSize: 10, padding: "3px 7px", borderRadius: 4,
             background: `color-mix(in oklab, ${accent} 18%, var(--bg-2))`,
@@ -152,4 +130,4 @@ const BookCard = ({ title, subtitle, publisher, date, pages, isbn, cover, accent
   );
 };
 
-Object.assign(window, { SectionBooks, SectionHeader });
+export { SectionBooks, SectionHeader };

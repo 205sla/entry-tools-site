@@ -4,3 +4,7 @@ scraps/
 .DS_Store
 Thumbs.db
 *.log
+node_modules/
+.build/
+dist/
+assets/site.js

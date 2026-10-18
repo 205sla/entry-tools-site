@@ -1,3 +1,6 @@
+import React from "react";
+
+
 const Nav = () => {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
@@ -7,32 +10,34 @@ const Nav = () => {
   }, []);
 
   const links = [
+    { href: "#choose", label: "도구 찾기" },
     { href: "#books", label: "도서" },
     { href: "#extensions", label: "확장프로그램" },
     { href: "#sites", label: "사이트" },
     { href: "#collab", label: "협업" },
     { href: "#channels", label: "채널" },
+    { href: "#questions", label: "질문·답변" },
     { href: "#about", label: "소개" },
   ];
 
   return (
-    <header style={{
+    <header className="site-header" style={{
       position: "sticky", top: 0, zIndex: 50,
       background: scrolled ? "color-mix(in oklab, var(--bg) 85%, transparent)" : "transparent",
       backdropFilter: scrolled ? "blur(12px) saturate(1.2)" : "none",
       borderBottom: scrolled ? "1px solid var(--line-2)" : "1px solid transparent",
       transition: "background 200ms, border-color 200ms",
     }}>
-      <div className="wrap" style={{
+      <div className="wrap nav-bar" style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
         height: 64,
       }}>
-        <a href="#top" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <a href="#top" aria-label="205 엔트리 도구 모음 처음으로" className="nav-brand" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <LogoMark />
           <span style={{ fontWeight: 700, letterSpacing: "-0.02em", fontSize: 16 }}>205<span style={{ color: "var(--brand)" }}>.</span>kr</span>
-          <span className="mono" style={{ fontSize: 11, color: "var(--ink-3)", marginLeft: 8, letterSpacing: "0.04em" }}>/ ENTRY TOOLS</span>
+          <span className="mono nav-wordmark" style={{ fontSize: 11, color: "var(--ink-3)", marginLeft: 8, letterSpacing: "0.04em" }}>/ ENTRY TOOLS</span>
         </a>
-        <nav style={{ display: "flex", alignItems: "center", gap: 4 }}>
+        <nav className="desktop-nav" aria-label="주 메뉴" style={{ display: "flex", alignItems: "center", gap: 4 }}>
           {links.map(l => (
             <a key={l.href} href={l.href} style={{
               padding: "8px 12px", fontSize: 14, color: "var(--ink-2)",
@@ -53,6 +58,20 @@ const Nav = () => {
             205.kr ↗
           </a>
         </nav>
+        <details className="mobile-nav" onKeyDown={event => {
+          if (event.key === "Escape") {
+            event.currentTarget.open = false;
+            event.currentTarget.querySelector("summary").focus();
+          }
+        }}>
+          <summary>메뉴 <span aria-hidden="true">☰</span></summary>
+          <nav aria-label="모바일 주 메뉴" onClick={event => {
+            if (event.target.closest("a")) event.currentTarget.parentElement.open = false;
+          }}>
+            {links.map(link => <a key={link.href} href={link.href}>{link.label}</a>)}
+            <a href="https://205.kr/" target="_blank" rel="noopener noreferrer">205.kr ↗</a>
+          </nav>
+        </details>
       </div>
     </header>
   );
@@ -60,11 +79,11 @@ const Nav = () => {
 
 const LogoMark = () => (
   // Abstract stacked-block mark — 3 overlapping rounded rects in brand green
-  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
     <rect x="3" y="5" width="18" height="6" rx="2" fill="var(--brand)" opacity="0.5"/>
     <rect x="5" y="11" width="20" height="6" rx="2" fill="var(--brand)" opacity="0.8"/>
     <rect x="7" y="17" width="14" height="6" rx="2" fill="var(--brand)"/>
   </svg>
 );
 
-Object.assign(window, { Nav, LogoMark });
+export { Nav, LogoMark };

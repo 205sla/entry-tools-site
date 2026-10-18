@@ -1,64 +1,8 @@
+import React from "react";
+import { SectionHeader } from "./SectionBooks.jsx";
+import { sites } from "../data/catalog.js";
+
 const SectionSites = () => {
-  const sites = [
-    {
-      name: "EntryMerge — 엔트리 작품 합치기 (웹)",
-      url: "https://entry.205.kr/",
-      host: "entry.205.kr",
-      desc: "확장 설치 없이 브라우저에서 바로 .ent 파일을 합치는 웹 버전. 드래그앤드롭으로 최대 10개(전체 150MB)까지, 리메이크 표시·대답·초시계 숨김 옵션도 함께 제공합니다.",
-      category: "도구",
-      accent: "#1fb25a",
-    },
-    {
-      name: "CODE 205 — 블록 코딩으로 푸는 알고리즘 문제",
-      url: "https://code.205.kr/",
-      host: "code.205.kr",
-      desc: "엔트리 블록으로 알고리즘 문제를 풀어보는 베타 서비스. 자유 모드에서 누구나 연습할 수 있고, 풀이 기록은 브라우저 로컬에만 저장됩니다. 오픈소스로 공개 중.",
-      category: "학습",
-      accent: "#1fb25a",
-      featured: true,
-      badge: "BETA",
-    },
-    {
-      name: "짧은 엔트리 — Short ENT",
-      url: "https://xn--oy2b95t44j.org/",
-      host: "엔트리.org",
-      desc: "엔트리 작품·마이페이지·탐험하기 같은 긴 URL을 엔트리.org 한글 도메인 기반 짧은 주소로 만들어주는 비공식 단축 도구. 별명으로 기억하기 쉬운 주소도 만들 수 있습니다.",
-      category: "유틸리티",
-      accent: "#7a62e0",
-    },
-    {
-      name: "유저 찾기 — 엔트리 유저 통계",
-      url: "https://xn--ok0bx68bhtav5k.xn--oy2b95t44j.org/",
-      host: "유저찾기.엔트리.org",
-      desc: "프로필 링크나 닉네임으로 엔트리 유저의 작품 통계·랭킹을 조회하는 비공식 통계 도구. 공개된 프로필 데이터만 읽어 오며, gnlow/Ent2ml 프로젝트를 참고해 Next.js로 재구성했습니다.",
-      category: "통계",
-      accent: "#4a6db0",
-    },
-    {
-      name: "엔트리 온라인 — 실시간 멀티플레이",
-      url: "https://online.205.kr/",
-      host: "online.205.kr",
-      desc: "엔트리 작품의 변수와 리스트를 같은 방의 플레이어들과 실시간으로 공유하는 서비스. 내 작품에 멀티플레이를 연결하고, 다른 사람들이 만든 온라인 작품도 만나보세요.",
-      category: "멀티플레이",
-      accent: "#4a6db0",
-    },
-    {
-      name: "엔트리 AI 체크 — AI로 만들었을까요?",
-      url: "https://ai.205.kr/",
-      host: "ai.205.kr",
-      desc: "공개된 엔트리 작품 링크로 AI 생성 가능성을 확인하는 참고용 검사. 설치나 로그인 없이 이용할 수 있으며, 결과에는 오탐·미탐 등 오류가 있을 수 있습니다.",
-      category: "작품 검사",
-      accent: "#176b50",
-    },
-    {
-      name: "엔트리 바이브코딩 — AI로 게임 만들기",
-      url: "https://xn--o01b54khubg9qb1j.xn--oy2b95t44j.org/",
-      host: "바이브코딩.엔트리.org",
-      desc: "만들고 싶은 게임을 말로 설명하고 AI 코딩 도우미와 함께 엔트리 작품을 만드는 시작 안내. 환경 준비부터 작품 제작·실행 확인까지, 사용법 영상과 복사해서 쓰는 프롬프트를 제공합니다.",
-      category: "제작 가이드",
-      accent: "#0f9b8e",
-    },
-  ];
 
   return (
     <section id="sites" style={{ padding: "96px 0 56px" }}>
@@ -73,13 +17,13 @@ const SectionSites = () => {
         <div className="sites-grid">
           {/* featured (알고리즘 테스트) */}
           {sites.filter(s => s.featured).map(s => (
-            <div key={s.url} className="site-item site-item-featured">
+            <div key={s.url} id={s.id} className="site-item site-item-featured">
               <FeaturedSite site={s} />
             </div>
           ))}
           {/* others */}
           {sites.filter(s => !s.featured).map(s => (
-            <div key={s.url} className={`site-item${s.wide ? " site-item-wide" : ""}`}>
+            <div key={s.url} id={s.id} className={`site-item${s.wide ? " site-item-wide" : ""}`}>
               <SiteCard site={s} />
             </div>
           ))}
@@ -170,7 +114,7 @@ const FeaturedSite = ({ site }) => {
 
 const JudgePreview = () => {
   return (
-    <div style={{
+    <div className="judge-preview" style={{
       background: "var(--bg)",
       color: "var(--ink)",
       borderRadius: 14,
@@ -192,6 +136,7 @@ const JudgePreview = () => {
       <div style={{ color: "var(--ink-3)" }}>// 입력 두 수 A, B의 합을 출력하세요</div>
       <img
         src="assets/judge-blocks.png"
+        width="629" height="360" loading="lazy" decoding="async"
         alt="엔트리 풀이 코드: 시작하기 → A? 묻고 대답 기다리기 → A 대답으로 정하기 → B? 묻고 대답 기다리기 → B 대답으로 정하기 → A값+B값 말하기"
         style={{ display: "block", width: "100%", height: "auto", marginTop: 10 }}
       />
@@ -210,7 +155,7 @@ const JudgePreview = () => {
 const SiteCard = ({ site }) => {
   const [hover, setHover] = React.useState(false);
   return (
-    <a href={site.url} target="_blank" rel="noreferrer"
+    <a className="site-card" href={site.url} target="_blank" rel="noreferrer"
        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
        style={{
       display: "block",
@@ -224,9 +169,9 @@ const SiteCard = ({ site }) => {
       transform: hover ? "translateY(-2px)" : "none",
       boxShadow: hover ? "var(--shadow-m)" : "var(--shadow-s)",
     }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
+      <div className="site-card-meta" style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
         <span style={{
-          width: 40, height: 40, borderRadius: 10,
+          width: 40, height: 40, borderRadius: 10, flexShrink: 0,
           background: `color-mix(in oklab, ${site.accent} 14%, var(--surface))`,
           border: `1px solid color-mix(in oklab, ${site.accent} 30%, var(--line))`,
           display: "flex", alignItems: "center", justifyContent: "center",
@@ -258,4 +203,4 @@ const SiteCard = ({ site }) => {
   );
 };
 
-Object.assign(window, { SectionSites });
+export { SectionSites };

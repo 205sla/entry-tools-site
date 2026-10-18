@@ -1,3 +1,6 @@
+import React from "react";
+
+
 const Tweaks = ({ tweaks, setTweaks, active, setActive }) => {
   const setKey = (k, v) => {
     const next = { ...tweaks, [k]: v };
@@ -80,4 +83,4 @@ const Seg = ({ options, value, onChange }) => (
   </div>
 );
 
-Object.assign(window, { Tweaks });
+export { Tweaks };
